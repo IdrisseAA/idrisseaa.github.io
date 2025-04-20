@@ -1,0 +1,71 @@
+.myprojects {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg); /* 32px */
+    padding: var(--space-lg) 10vw; /* 32px 10vw */
+    color: var(--text-accent); /* #D3D3D3 */
+    font-family: var(--font-primary); /* 'Poppins', sans-serif */
+}
+
+.projects-title {
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.projects-title h1 {
+    font-size: 64px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md); /* 24px */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out 0.2s; /* Added animation */
+    animation-fill-mode: backwards;
+}
+
+.glow-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: 0 0 10px rgba(111, 255, 82, 0.2);
+    margin: var(--space-md) 0; /* 24px */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .myprojects {
+        gap: var(--space-md); /* 24px - Reduced gap for better mobile spacing */
+    }
+
+    .projects-title h1 {
+        font-size: 40px;
+    }
+
+    .projects-container {
+        gap: var(--space-sm); /* 16px - Reduced gap for mobile */
+    }
+
+    .glow-divider {
+        margin: var(--space-sm) 0; /* 16px */
+    }
+}

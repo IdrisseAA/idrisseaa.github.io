@@ -1,0 +1,39 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-lg) 10vw; /* 32px 10vw */
+    color: var(--text-accent); /* #D3D3D3 */
+    font-family: var(--font-primary); /* 'Poppins', sans-serif */
+    max-width: 1440px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(111, 255, 82, 0.1);
+    box-shadow: 0 0 20px rgba(111, 255, 82, 0.05);
+}
+
+.footer-bottom {
+    font-size: 14px;
+    text-align: center;
+    color: var(--text-soft); /* #B0B0B0 */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-bottom {
+        font-size: 12px;
+    }
+}

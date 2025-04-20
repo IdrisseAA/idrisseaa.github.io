@@ -1,0 +1,260 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg); /* 32px */
+    padding: var(--space-lg) 10vw; /* 32px 10vw */
+    background: var(--bg-primary); /* #0A0F1C */
+    color: var(--text-accent); /* #D3D3D3 */
+}
+
+.glow-divider {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end)); /* #8FFF52 to #4CFAC8 */
+    box-shadow: 0 0 10px rgba(111, 255, 82, 0.2);
+    margin: var(--space-md) 0; /* 24px */
+}
+
+/* Title Section */
+.about-title h1 {
+    font-size: 64px;
+    font-weight: 700;
+    font-family: var(--font-primary); /* 'Poppins', sans-serif */
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: var(--space-sm); /* 16px */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Main Layout */
+.about-sections {
+    display: flex;
+    gap: var(--space-lg); /* 32px */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px; /* Constrain width for better readability */
+}
+
+/* Left: Image */
+.about-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px; /* Ensure image doesn’t shrink too much */
+}
+
+.about-image {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(111, 255, 82, 0.4), 0 0 10px rgba(111, 255, 82, 0.2) inset;
+    transition: transform 0.3s ease;
+    animation: fadeIn 1s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+}
+
+/* Right: Content */
+.about-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md); /* 24px */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: var(--space-md); /* 24px */
+    border-radius: var(--radius-section); /* 16px */
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(111, 255, 82, 0.05);
+    animation: fadeIn 1s ease-out 0.4s;
+    animation-fill-mode: backwards;
+}
+
+/* Paragraph Text */
+.about-para p {
+    font-size: 20px;
+    line-height: 1.9;
+    font-family: var(--font-primary);
+    color: var(--text-soft); /* #B0B0B0 */
+    text-align: justify;
+}
+
+/* Skills Section */
+.about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm); /* 16px */
+}
+
+.about-skill {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md); /* 24px */
+}
+
+.about-skill p {
+    min-width: 150px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-accent); /* #D3D3D3 */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.about-skill:hover p {
+    color: var(--primary-accent); /* #39FF14 */
+    text-shadow: 0 0 12px rgba(111, 255, 82, 0.6);
+}
+
+.skill-bar {
+    height: 8px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px rgba(111, 255, 82, 0.4);
+    transition: width 0.5s ease;
+}
+
+.skill-bar--50 {
+    width: 50%;
+}
+
+.skill-bar--60 {
+    width: 60%;
+}
+
+.skill-bar--70 {
+    width: 70%;
+}
+
+/* Achievements */
+.about-achievements {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-md); /* 24px */
+    margin-top: var(--space-md);
+}
+
+.about-achievement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm); /* 16px */
+    transition: transform 0.4s ease;
+}
+
+.about-achievement:nth-child(1) {
+    animation: fadeIn 1s ease-out 0.6s;
+    animation-fill-mode: backwards;
+}
+
+.about-achievement:nth-child(3) {
+    animation: fadeIn 1s ease-out 0.8s;
+    animation-fill-mode: backwards;
+}
+
+.about-achievement:nth-child(5) {
+    animation: fadeIn 1s ease-out 1s;
+    animation-fill-mode: backwards;
+}
+
+.about-achievement h1 {
+    font-size: 48px; /* Reduced from 56px */
+    font-weight: 700;
+    font-family: var(--font-primary); /* 'Poppins', sans-serif */
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2); /* Subtle outline for contrast */
+    text-shadow: 0 0 12px rgba(111, 255, 82, 0.2); /* Softer glow */
+    transition: all 0.3s ease;
+}
+
+.about-achievement p {
+    font-size: 16px; /* Reduced from 18px */
+    font-weight: 500; /* Slightly bolder */
+    color: var(--text-accent); /* #D3D3D3 */
+    font-family: var(--font-mono); /* 'Roboto Mono', monospace */
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.about-achievement:hover {
+    transform: scale(1.1); /* Softer scale */
+}
+
+.about-achievement:hover h1 {
+    text-shadow: 0 0 20px rgba(111, 255, 82, 0.4); /* Softer glow */
+    transform: scale(1.05); /* Adjusted for smoother effect */
+}
+
+.about-achievement:hover p {
+    color: var(--white); /* #FFFFFF */
+}
+
+.about-achievements hr {
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, var(--primary-accent), transparent);
+    border: none;
+    box-shadow: 0 0 10px rgba(111, 255, 82, 0.2);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-sections {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md); /* 24px */
+    }
+
+    .about-title h1 {
+        font-size: 40px;
+    }
+
+    .about-right {
+        padding: var(--space-sm); /* 16px */
+    }
+
+    .about-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-skill p {
+        font-size: 18px;
+        min-width: 120px;
+    }
+
+    .about-achievement h1 {
+        font-size: 36px; /* Reduced from 40px */
+    }
+
+    .about-achievement p {
+        font-size: 14px; /* Reduced from 16px */
+    }
+}

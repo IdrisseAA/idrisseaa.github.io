@@ -1,0 +1,28 @@
+/* Design system variables */
+:root {
+    /* Colors */
+    --primary-accent: #39FF14;
+    --gradient-start: #8FFF52;
+    --gradient-end: #4CFAC8;
+    --text-accent: #D3D3D3;
+    --text-soft: #B0B0B0;
+    --text-soft-alt: #B0FFBC;
+    --bg-primary: #0A0F1C;
+    --bg-secondary: #05070E;
+    --bg-tertiary: #1c1c1c;
+    --white: #FFFFFF;
+
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    /* Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+
+    /* Border Radius */
+    --radius-button: 50px;
+    --radius-section: 16px;
+}

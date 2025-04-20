@@ -1,0 +1,62 @@
+.research {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg); /* 32px */
+    padding: var(--space-lg) 10vw; /* 32px 10vw */
+    background: var(--bg-primary); /* #0A0F1C */
+    color: var(--text-accent); /* #D3D3D3 */
+}
+
+/* Title */
+.research-title h1 {
+    font-size: 64px;
+    font-weight: 700;
+    font-family: var(--font-primary); /* 'Poppins', sans-serif */
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Card Grid */
+.research-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-md); /* 24px */
+    width: 100%;
+    max-width: 1200px; /* Added for consistency with Projects */
+    padding: var(--space-md); /* 24px */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-section); /* 16px */
+    box-shadow: 0 0 40px rgba(111, 255, 82, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    animation: fadeIn 1s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .research-title h1 {
+        font-size: 42px;
+    }
+
+    .research-container {
+        padding: var(--space-sm); /* 16px */
+    }
+}
