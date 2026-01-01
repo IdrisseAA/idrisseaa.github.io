@@ -7,6 +7,7 @@ import linkedinIcon from '../../../assets/images/icons/linkedin_icon.png';
 import githubIcon from '../../../assets/images/icons/github_icon.png';
 import twitterIcon from '../../../assets/images/icons/twitter_icon.png';
 import Button from '../../ui/Button/Button.jsx';
+import Divider from "../../ui/Divider.jsx";
 
 
 const Contact = () => {
@@ -40,8 +41,8 @@ const Contact = () => {
 
     return (
         <section className="contact" id="contact">
+            <Divider/>
             <div className="contact-header">
-                <div className="glow-divider"></div>
                 <h1 className="contact-header-title">Contact</h1>
                 <p className="contact-subtitle">
                     Let’s build something great together. Reach out for collaboration, projects, or just to say hi.

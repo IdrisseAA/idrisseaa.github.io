@@ -1,11 +1,12 @@
 import {React} from "react";
 import './About.css';
 import profileImage from '../../../assets/images/profile/profilePic.jpg';
+import Divider from "../../ui/Divider.jsx";
 
 const About = () => {
     return (
         <section className="about" id="about">
-            <div className="glow-divider"></div>
+            <Divider/>
             <div className="about-title">
                 <h1>About Me</h1>
             </div>

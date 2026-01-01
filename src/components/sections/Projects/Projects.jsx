@@ -4,11 +4,12 @@ import arrowIcon from '../../../assets/images/icons/arrow_icon.png';
 import Card from '../../ui/Card/Card.jsx';
 import Button from '../../ui/Button/Button.jsx';
 import './Projects.css';
+import Divider from "../../ui/Divider.jsx";
 
 const Projects = () => {
     return (
         <section className="myprojects" id="projects">
-            <div className="glow-divider"></div>
+            <Divider/>
             <div className="projects-title">
                 <h1>My Projects</h1>
             </div>
@@ -33,7 +34,6 @@ const Projects = () => {
             >
                 Show More
             </Button>
-            <div className="glow-divider"></div>
         </section>
     );
 };

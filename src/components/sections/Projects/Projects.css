@@ -31,13 +31,7 @@
     animation-fill-mode: backwards;
 }
 
-.glow-divider {
-    height: 2px;
-    width: 100%;
-    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-    box-shadow: 0 0 10px rgba(111, 255, 82, 0.2);
-    margin: var(--space-md) 0; /* 24px */
-}
+
 
 /* Fade-in animation */
 @keyframes fadeIn {

@@ -3,10 +3,12 @@ import './Research.css';
 import researchData from '../../../assets/data/researches.js';
 import arrowIcon from '../../../assets/images/icons/arrow_icon.png';
 import Card from '../../ui/Card/Card.jsx';
+import Divider from "../../ui/Divider.jsx";
 
 const Research = () => {
     return (
         <section className="research" id="research">
+            <Divider/>
             <div className="research-title">
                 <h1>Research</h1>
             </div>

@@ -13,8 +13,7 @@ const Hero = () => {
             </h1>
             <p className="hero-subtitle">
                 I’m Idrisse, an ML Engineer with experience at Thales, passionate about leveraging machine learning to
-                solve
-                complex problems.
+                solve complex problems.
             </p>
             <div className="hero-action">
                 <AnchorLink href="#contact" offset={50}>
