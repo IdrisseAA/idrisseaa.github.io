@@ -12,8 +12,9 @@
     --bg-tertiary: #1c1c1c;
     --white: #FFFFFF;
 
-    /* Typography */
-    --font-primary: 'Poppins', sans-serif;
+    /* Typography - The System Font Stack */
+    /* This ensures zero-load time and high stability */
+    --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 
     /* Spacing */
@@ -21,6 +22,7 @@
     --space-sm: 16px;
     --space-md: 24px;
     --space-lg: 32px;
+    --space-xl: 60px; /* Added for section breathing room */
 
     /* Border Radius */
     --radius-button: 50px;

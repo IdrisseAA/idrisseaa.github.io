@@ -1,15 +1,38 @@
-/* Global styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Mono:wght@400&display=swap');
+/* 1. Imports - Only import what is strictly necessary */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 @import url('./reset.css');
 @import url('./variables.css');
 
-h1, h2, h3 {
+/* 2. Base Styles */
+body {
+    background-color: var(--bg-primary);
+    color: var(--white);
+    font-family: var(--font-primary);
+    margin: 0;
+    /* Improves font rendering on macOS and Linux */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: 700;
     color: var(--white);
+    margin: 0;
 }
 
 p {
+    font-family: var(--font-primary);
     font-size: 16px;
+    line-height: 1.6; /* Improved readability for descriptions */
     color: var(--text-soft);
+    margin: 0;
+}
+
+/* 4. Utility for the React Root */
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
