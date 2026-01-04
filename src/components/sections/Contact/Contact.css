@@ -55,6 +55,16 @@
     flex-direction: column;
     gap: var(--space-md); /* 24px */
     flex: 1;
+    /* Glassmorphic box styling for consistency */
+    padding: var(--space-md); /* 24px */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    border-radius: 24px; /* More rounded */
+    box-shadow: 0 0 40px rgba(111, 255, 82, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .contact-right form {

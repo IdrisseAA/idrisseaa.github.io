@@ -31,7 +31,7 @@
     padding: var(--space-md); /* 24px */
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(6px);
-    border-radius: var(--radius-section); /* 16px */
+    border-radius: 24px; /* More rounded */
     box-shadow: 0 0 40px rgba(111, 255, 82, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.04);
     animation: fadeIn 1s ease-out 0.2s;
