@@ -31,27 +31,37 @@ const Contact = () => {
             <div className="contact-section">
                 <div className="contact-right contact-form-container">
                     <form onSubmit={handleSubmit}>
-                        <label htmlFor="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your name" required/>
+                        <div className="form-field">
+                            <label htmlFor="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required/>
+                        </div>
 
-                        <label htmlFor="subject">Topic</label>
-                        <input type="text" id="subject" name="subject" placeholder="Topic of your message" />
+                        <div className="form-field">
+                            <label htmlFor="subject">Topic</label>
+                            <input type="text" id="subject" name="subject" placeholder="Topic of your message" />
+                        </div>
 
-                        <label htmlFor="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email" required/>
+                        <div className="form-field">
+                            <label htmlFor="email">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required/>
+                        </div>
 
-                        <label htmlFor="message">Your Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="5"
-                            placeholder="Write your message here..."
-                            required
-                        ></textarea>
+                        <div className="form-field form-field--message">
+                            <label htmlFor="message">Your Message</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                placeholder="Write your message here..."
+                                required
+                            ></textarea>
+                        </div>
 
-                        <Button variant="primary" size="medium" type="submit">
-                            Send Message
-                        </Button>
+                        <div className="form-field form-field--submit">
+                            <Button variant="primary" size="medium" type="submit">
+                                Send Message
+                            </Button>
+                        </div>
                     </form>
                 </div>
             </div>
