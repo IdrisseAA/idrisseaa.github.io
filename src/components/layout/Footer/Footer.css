@@ -2,14 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--space-lg) 10vw; /* 32px 10vw */
-    color: var(--text-accent); /* #D3D3D3 */
-    font-family: var(--font-primary); /* 'Poppins', sans-serif */
-    max-width: 1440px;
-    margin: 0 auto;
+    /* match navbar spacing: bounded horizontal padding and consistent vertical spacing */
+    padding-block: var(--space-lg);
+    padding-inline: clamp(16px, 6vw, 120px);
+    color: var(--text-accent);
+    font-family: var(--font-primary);
+    max-width: var(--maximum-width);
+    margin: 0 auto 10px;
     background: rgba(255, 255, 255, 0.02);
     border-top: 1px solid rgba(111, 255, 82, 0.1);
     box-shadow: 0 0 20px rgba(111, 255, 82, 0.05);
+    /* subtle rounding to match navbar */
+    border-radius: var(--radius-md);
 }
 
 .footer-bottom {
@@ -17,6 +21,54 @@
     text-align: center;
     color: var(--text-soft); /* #B0B0B0 */
     animation: fadeIn 1s ease-out;
+}
+
+.footer-bottom-text {
+    margin: 0;
+}
+
+/* Footer socials - based on contact styles but adapted for footer */
+.footer-bottom-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.footer-socials-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.footer-socials {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+}
+
+.footer-socials img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials img:hover {
+    filter: brightness(1) drop-shadow(0 0 4px rgba(111, 255, 82, 0.66));
+    transform: scale(1.1);
 }
 
 /* Fade-in animation */

@@ -3,15 +3,13 @@ import './Contact.css';
 import mailIcon from '../../../assets/images/icons/mail_icon.png';
 import locationIcon from '../../../assets/images/icons/location_icon.png';
 import eyeIcon from '../../../assets/images/icons/eye_icon.png';
-import linkedinIcon from '../../../assets/images/icons/linkedin_icon.png';
-import githubIcon from '../../../assets/images/icons/github_icon.png';
-import twitterIcon from '../../../assets/images/icons/twitter_icon.png';
 import Button from '../../ui/Button/Button.jsx';
 import Divider from "../../ui/Divider.jsx";
 
 
 const Contact = () => {
     const [email, setEmail] = useState('');
+    // eslint-disable-next-line no-unused-vars
     const [emailVisible, setEmailVisible] = useState(false);
 
     const revealEmail = () => {
@@ -79,36 +77,7 @@ const Contact = () => {
                             <img src={locationIcon} alt="Location icon for contact"/>
                             <p>France, EU — Open to remote work</p>
                         </div>
-                        <div className="contact-detail">
-                            <div className="contact-socials-wrapper">
-                                <div className="contact-socials">
-                                    <a
-                                        href="https://linkedin.com/in/idrisseaa"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Visit my LinkedIn profile"
-                                    >
-                                        <img src={linkedinIcon} alt="LinkedIn profile link"/>
-                                    </a>
-                                    <a
-                                        href="https://github.com/idrisseaa"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Visit my GitHub profile"
-                                    >
-                                        <img src={githubIcon} alt="GitHub profile link"/>
-                                    </a>
-                                    <a
-                                        href="https://twitter.com/idrisseaa"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        aria-label="Visit my Twitter profile"
-                                    >
-                                        <img src={twitterIcon} alt="Twitter profile link"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="contact-right">
