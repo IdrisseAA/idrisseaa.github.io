@@ -1,22 +1,138 @@
-import React from 'react';
+/* eslint-disable no-control-regex */
+import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 import Button from '../../ui/Button/Button.jsx';
 import Divider from "../../ui/Divider.jsx";
 
 
 const Contact = () => {
-    // simplified contact: only the form remains here
+    // EMAILJS CONFIGURATION: These are public keys designed to be in client-side code
+    // Domain restrictions are set in EmailJS dashboard for security
+    const EMAILJS_CONFIG = {
+        serviceId: 'service_dh79ymf',
+        templateId: 'template_xob86go',
+        publicKey: 'PVHX4-AG5iqWIXVvp'
+    };
+
+    // Initialize EmailJS once on component mount
+    React.useEffect(() => {
+        emailjs.init(EMAILJS_CONFIG.publicKey);
+    }, []);
+
+    // Form state: errors for validation feedback and success flag for submission confirmation
+    const [errors, setErrors] = useState({ name: '', email: '', subject: '', message: '' });
+    // IMPROVEMENT #4: Add success state to show confirmation message after form submission
+    const [success, setSuccess] = useState(false);
+    // EMAILJS: Add loading state while sending email
+    const [isSending, setIsSending] = useState(false);
+    // IMPROVEMENT #6: Add character count state for message field
+    const [messageLength, setMessageLength] = useState(0);
+
+    // sanitize and validate inputs before submission
+    const sanitizeString = (raw) => {
+        if (!raw) return '';
+        // normalize unicode, remove control characters, collapse whitespace
+        return String(raw)
+            .normalize('NFKC')
+            .replace(/[\u0000-\u001F\u007F]/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+    };
+
+    const normalizeEmail = (raw) => {
+        if (!raw) return '';
+        // simple normalization: lower-case and trim
+        return String(raw).trim().toLowerCase();
+    };
+
+    const validateName = (name) => {
+        // allow letters (including accents), spaces, hyphens and apostrophes; minimum 2 chars
+        const re = /^[A-Za-zÀ-ÖØ-öø-ÿ'\- ]{2,60}$/u;
+        return re.test(name);
+    };
+
+    // IMPROVEMENT #7: Use regex-only email validation to avoid Vite dependency error
+    const validateEmail = (email) => {
+        // Reasonable email sanity check using regex pattern
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email) && email.length <= 254;
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
-        console.log({
-            name: formData.get('name'),
-            subject: formData.get('subject'),
-            email: formData.get('email'),
-            message: formData.get('message'),
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const rawName = formData.get('name');
+        const rawSubject = formData.get('subject');
+        const rawEmail = formData.get('email');
+        const rawMessage = formData.get('message');
+
+        const name = sanitizeString(rawName);
+        const subject = sanitizeString(rawSubject);
+        const email = normalizeEmail(rawEmail);
+        const message = sanitizeString(rawMessage);
+
+        // clear previous errors
+        setErrors({ name: '', email: '', subject: '', message: '' });
+
+        if (!validateName(name)) {
+            setErrors((prev) => ({ ...prev, name: 'Please enter a valid name (letters, spaces, hyphens, apostrophes only).' }));
+            if (form.name) form.name.focus();
+            return;
+        }
+
+        if (subject && subject.length > 120) {
+            setErrors((prev) => ({ ...prev, subject: 'Topic is too long. Please shorten it.' }));
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            setErrors((prev) => ({ ...prev, email: 'Please enter a valid email address.' }));
+            if (form.email) form.email.focus();
+            return;
+        }
+
+        if (message.length > 1000) {
+            setErrors((prev) => ({ ...prev, message: 'Message is too long. Please shorten it.' }));
+            return;
+        }
+
+        // EMAILJS: All validation passed, now send email
+        setIsSending(true);
+        
+        const templateParams = {
+            to_email: 'contact@idrisseaa.com', // Your receiving email
+            name: name,
+            email: email,
+            subject: subject || 'No subject',
+            message: message,
+            time: new Date().toLocaleString()
+        };
+
+        emailjs.send(
+            EMAILJS_CONFIG.serviceId,
+            EMAILJS_CONFIG.templateId,
+            templateParams
+        )
+        .then(() => {
+            setIsSending(false);
+            setSuccess(true);
+            form.reset();
+            setMessageLength(0);
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => setSuccess(false), 5000);
+        })
+        .catch((error) => {
+            setIsSending(false);
+            console.error('EmailJS error:', error);
+            setErrors((prev) => ({
+                ...prev,
+                message: 'Failed to send message. Please try again.'
+            }));
         });
-        e.target.reset();
     };
 
     return (
@@ -32,37 +148,93 @@ const Contact = () => {
                 <div className="contact-right contact-form-container">
                     <form onSubmit={handleSubmit}>
                         <div className="form-field">
-                            <label htmlFor="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required/>
+                            {/* IMPROVEMENT #3: Add required indicator (*) to label */}
+                            <label htmlFor="name">Your Name <span className="required-indicator">*</span></label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                                maxLength={60}
+                                pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' \-]+$"
+                                aria-invalid={!!errors.name}
+                                onChange={() => setErrors((p) => ({ ...p, name: '' }))}
+                                onInvalid={(e) => e.target.setCustomValidity('Please enter your name.')}
+                                onInput={(e) => e.target.setCustomValidity('')}
+                            />
+                            {errors.name && <div className="form-error" role="alert">{errors.name}</div>}
                         </div>
 
                         <div className="form-field">
                             <label htmlFor="subject">Topic</label>
-                            <input type="text" id="subject" name="subject" placeholder="Topic of your message" />
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="Topic of your message"
+                                maxLength={120}
+                                aria-invalid={!!errors.subject}
+                                onChange={() => setErrors((p) => ({ ...p, subject: '' }))}
+                            />
+                            {errors.subject && <div className="form-error" role="alert">{errors.subject}</div>}
                         </div>
 
                         <div className="form-field form-field--email">
-                            <label htmlFor="email">Your Email</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required/>
+                            {/* IMPROVEMENT #3: Add required indicator (*) to label */}
+                            <label htmlFor="email">Your Email <span className="required-indicator">*</span></label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                                maxLength={254}
+                                aria-invalid={!!errors.email}
+                                onChange={() => setErrors((p) => ({ ...p, email: '' }))}
+                                onInvalid={(e) => e.target.setCustomValidity('Please enter a valid email address.')}
+                                onInput={(e) => e.target.setCustomValidity('')}
+                            />
+                            {errors.email && <div className="form-error" role="alert">{errors.email}</div>}
                         </div>
 
                         <div className="form-field form-field--message">
-                            <label htmlFor="message">Your Message</label>
+                            {/* IMPROVEMENT #3: Add required indicator (*) to label */}
+                            {/* IMPROVEMENT #6: Add character counter for message field */}
+                            <div className="label-with-counter">
+                                <label htmlFor="message">Your Message <span className="required-indicator">*</span></label>
+                                <span className="character-counter">{messageLength}/1000</span>
+                            </div>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="5"
                                 placeholder="Write your message here..."
                                 required
+                                maxLength={1000}
+                                aria-invalid={!!errors.message}
+                                onChange={(e) => {
+                                    setErrors((p) => ({ ...p, message: '' }));
+                                    setMessageLength(e.target.value.length);
+                                }}
+                                onInvalid={(e) => e.target.setCustomValidity('Please enter your message.')}
+                                onInput={(e) => e.target.setCustomValidity('')}
                             ></textarea>
+                            {errors.message && <div className="form-error" role="alert">{errors.message}</div>}
                         </div>
 
                         <div className="form-field form-field--submit">
-                            <Button variant="primary" size="medium" type="submit">
-                                Send Message
+                            <Button variant="primary" size="medium" type="submit" disabled={isSending}>
+                                {isSending ? 'Sending...' : 'Send Message'}
                             </Button>
                         </div>
                     </form>
+                    {/* IMPROVEMENT #4: Show success message after form submission */}
+                    {success && (
+                        <div className="form-success" role="status" aria-live="polite">
+                            ✓ Message sent successfully! I will get back to you soon.
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
