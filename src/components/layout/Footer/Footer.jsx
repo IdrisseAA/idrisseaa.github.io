@@ -10,6 +10,7 @@ const Footer = () => {
             <div className="footer-bottom">
                 <div className="footer-bottom-content">
                     <p className="footer-bottom-text">© {new Date().getFullYear()} IdrisseAA</p>
+                    <p className="footer-made-with">Made with curiosity using React.</p>
                     <div className="footer-socials-wrapper">
                         <div className="footer-socials">
                             <a
