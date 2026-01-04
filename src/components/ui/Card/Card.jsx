@@ -22,6 +22,7 @@ const Card = ({
           src={image}
           alt={`Screenshot of ${title}`}
           className="card-image"
+          loading="lazy"
         />
       )}
       {meta && <h3 className="card-meta">{meta}</h3>}

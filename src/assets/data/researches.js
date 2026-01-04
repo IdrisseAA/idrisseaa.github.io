@@ -99,6 +99,57 @@ const researches = [
         date: "February 2025",
         collaborators: ["Dr. John Doe"],
     },
+    {
+        researchNumber: 7,
+        name: "Neural Architecture Search for Efficient Edge AI",
+        description:
+            "Developed automated neural architecture search methods for designing efficient deep learning models on edge devices, achieving 30% better latency-accuracy tradeoff.",
+        technologies: [
+            "Python",
+            "AutoML",
+            "TensorFlow",
+            "Edge Computing",
+            "Neural Architecture Search",
+        ],
+        link: "https://github.com/idrisseaa/nas-edge-ai",
+        category: "Machine Learning",
+        date: "November 2024",
+        collaborators: ["MIT Research Lab"],
+    },
+    {
+        researchNumber: 8,
+        name: "Multi-Modal Learning for Document Understanding",
+        description:
+            "Explored multi-modal transformer architectures combining text, layout, and visual features for document understanding tasks, improving F1 score by 14%.",
+        technologies: [
+            "Python",
+            "PyTorch",
+            "Computer Vision",
+            "NLP",
+            "Multi-Modal Learning",
+        ],
+        link: "https://arxiv.org/abs/2409.87654",
+        category: "Computer Vision",
+        date: "September 2024",
+        collaborators: ["Adobe Research"],
+    },
+    {
+        researchNumber: 9,
+        name: "Privacy-Preserving Federated Learning for Healthcare",
+        description:
+            "Investigated federated learning techniques with differential privacy for medical data analysis, maintaining 92% model accuracy while ensuring patient privacy compliance.",
+        technologies: [
+            "Python",
+            "Federated Learning",
+            "Differential Privacy",
+            "Healthcare AI",
+            "Security",
+        ],
+        link: "https://github.com/idrisseaa/federated-healthcare",
+        category: "Privacy & Security",
+        date: "July 2024",
+        collaborators: ["Stanford Medical School"],
+    },
 ];
 
 export default researches;

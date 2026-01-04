@@ -3,8 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 75vh;
-    padding: 120px var(--space-md) 60px var(--space-md);
+    min-height: 60vh;
+    padding: var(--space-lg) 10vw 0 10vw; /* 32px top, 0 bottom, 10vw sides */
+    margin-top: 180px; /* Space for sticky navbar */
     gap: var(--space-md);
 
     background: var(--bg-primary);
@@ -19,6 +20,7 @@
     object-fit: cover;
     margin-top: 0; /* REMOVED: prevent extra top gap */
     box-shadow: 0 0 20px rgba(111, 255, 82, 0.4);
+    transition: transform 0.3s ease;
 }
 
 .hero-image:hover {
@@ -61,18 +63,6 @@
     margin-top: var(--space-sm);
     animation: fadeIn 1s ease-out 0.6s;
     animation-fill-mode: backwards;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Responsive: Tablets and smaller (≤768px) */

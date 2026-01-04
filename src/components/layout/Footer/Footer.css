@@ -1,82 +1,138 @@
 .footer {
-    padding: var(--space-lg) 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* match navbar spacing: bounded horizontal padding and consistent vertical spacing */
+    padding-block: var(--space-lg);
+    padding-inline: clamp(16px, 6vw, 120px);
     color: var(--text-accent);
     font-family: var(--font-primary);
-    max-width: 1440px;
-    margin: 0 auto;
+    max-width: var(--maximum-width);
+    margin: 0 auto 10px;
     background: rgba(255, 255, 255, 0.02);
     border-top: 1px solid rgba(111, 255, 82, 0.1);
-    /* Softer glow for a more modern, subtle look */
-    box-shadow: 0 0 15px rgba(111, 255, 82, 0.03);
+    box-shadow: 0 0 20px rgba(111, 255, 82, 0.05);
+    /* subtle rounding to match navbar */
+    border-radius: var(--radius-md);
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    text-align: center;
-}
-
-.copyright,
-.built-by {
+.footer-bottom {
     font-size: 14px;
-    color: var(--text-soft);
+    text-align: center;
+    color: var(--text-soft); /* #B0B0B0 */
+    animation: fadeIn 1s ease-out;
+}
+
+.footer-bottom-text {
     margin: 0;
 }
 
-.social-icons {
+.footer-made-with {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 14px;
+    font-family: var(--font-primary);
+    text-align: center;
+}
+
+/* Footer socials - based on contact styles but adapted for footer */
+.footer-bottom-content {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    flex-direction: column;
 }
 
-.social-icons a {
-    display: block;
-    line-height: 0; /* Removes unwanted spacing */
+/* Desktop: use grid for precise left/center/right layout */
+@media (min-width: 768px) {
+    .footer-bottom-content {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: var(--space-md);
+        width: 100%;
+    }
+
+    .footer-socials {
+        justify-self: start;
+    }
+
+    .footer-bottom-text {
+        justify-self: center;
+        margin: 0;
+    }
+
+    .footer-made-with {
+        justify-self: end;
+        margin: 0;
+        text-align: right;
+    }
 }
 
-.social-icons a img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: brightness(0.9);
-}
-
-.social-icons a:hover img {
-    transform: translateY(-3px) scale(1.1);
-    filter: brightness(1.3) hue-rotate(10deg); /* Subtle green accent on hover */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .footer-content {
+/* Mobile: stack and center everything */
+@media (max-width: 767px) {
+    .footer-bottom-content {
         flex-direction: column;
-        gap: 1.2rem;
+        gap: var(--space-sm);
     }
 
-    .copyright,
-    .built-by {
-        font-size: 13px;
-    }
-
-    .social-icons {
-        gap: 1.8rem;
-    }
-
-    .social-icons a img {
-        width: 30px;
-        height: 30px;
+    .footer-socials,
+    .footer-bottom-text,
+    .footer-made-with {
+        text-align: center;
+        margin: 0;
     }
 }
 
-@media (max-width: 480px) {
-    .footer {
-        padding: var(--space-md) 6vw;
-    }
+.footer-socials-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
 
-    .social-icons {
-        gap: 1.5rem;
+.footer-socials {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+}
+
+.footer-socials img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials img:hover {
+    filter: brightness(1) drop-shadow(0 0 4px rgba(111, 255, 82, 0.66));
+    transform: scale(1.1);
+}
+
+/* keyboard focus for social links */
+.footer-socials a:focus-visible {
+    outline: 2px solid var(--primary-accent);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .footer-bottom,
+    .footer-bottom-content,
+    .footer-socials img {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-bottom {
+        font-size: 12px;
     }
 }

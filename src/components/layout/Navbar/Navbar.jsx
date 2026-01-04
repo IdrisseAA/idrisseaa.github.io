@@ -23,19 +23,16 @@ const Navbar = () => {
 
     const openMenu = useCallback(() => {
         setIsMenuOpen(true);
-        menuRef.current.style.right = '0';
-        menuRef.current.querySelector('li a').focus();
     }, []);
 
     const closeMenu = useCallback(() => {
         setIsMenuOpen(false);
-        menuRef.current.style.right = '-100%';
-        menuOpenRef.current.focus();
+        menuOpenRef.current?.focus();
     }, []);
 
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (e.key === 'Escape' && menuRef.current.style.right === '0px') {
+            if (e.key === 'Escape' && menuRef.current?.classList.contains('open')) {
                 closeMenu();
             }
         };
@@ -48,8 +45,8 @@ const Navbar = () => {
             if (
                 menuRef.current &&
                 !menuRef.current.contains(e.target) &&
-                !menuOpenRef.current.contains(e.target) &&
-                menuRef.current.style.right === '0px'
+                !menuOpenRef.current?.contains(e.target) &&
+                menuRef.current.classList.contains('open')
             ) {
                 closeMenu();
             }
@@ -90,25 +87,69 @@ const Navbar = () => {
         };
     }, [handleScroll]);
 
+    // When menu open state changes, sync ARIA, focus and body scroll
+    useEffect(() => {
+        const menuEl = menuRef.current;
+        const toggleEl = menuOpenRef.current;
+        if (!menuEl || !toggleEl) return;
+
+        if (isMenuOpen) {
+            menuEl.classList.add('open');
+            menuEl.setAttribute('aria-hidden', 'false');
+            toggleEl.setAttribute('aria-expanded', 'true');
+            // focus first link safely
+            const firstLink = menuEl.querySelector('li a');
+            firstLink?.focus();
+            // prevent background scroll
+            document.body.style.overflow = 'hidden';
+            // trap focus: add keydown listener
+            const trapHandler = (e) => {
+                if (e.key !== 'Tab') return;
+                const focusable = menuEl.querySelectorAll('a, button');
+                if (!focusable.length) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            };
+            document.addEventListener('keydown', trapHandler);
+            return () => document.removeEventListener('keydown', trapHandler);
+        } else {
+            menuEl.classList.remove('open');
+            menuEl.setAttribute('aria-hidden', 'true');
+            toggleEl.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }, [isMenuOpen, closeMenu]);
+
     return (
         <nav className="navbar">
             <img
                 src={logo}
-                alt="Idriss EAA portfolio logo"
+                alt="IdrisseAA logo"
                 className="navbar-logo animate"
             />
             <button
                 ref={menuOpenRef}
+                type="button"
+                aria-controls="nav-menu"
+                aria-expanded={isMenuOpen}
                 className={`nav-mob-open animate ${isMenuOpen ? 'hidden' : ''}`}
                 onClick={openMenu}
                 aria-label="Open navigation menu"
             >
                 <img src={menuOpen} alt="Open menu icon"/>
             </button>
-            <ul ref={menuRef} className="nav-menu">
+            <ul ref={menuRef} id="nav-menu" className={`nav-menu ${isMenuOpen ? 'open' : ''}`} aria-hidden={!isMenuOpen}>
                 <li className="nav-mob-close-item">
                     <button
                         className="nav-mob-close"
+                        type="button"
                         onClick={closeMenu}
                         aria-label="Close navigation menu"
                     >

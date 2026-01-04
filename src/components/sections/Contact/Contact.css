@@ -48,130 +48,23 @@
     }
 }
 
-.contact-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--space-md); /* 24px */
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    padding: var(--space-md); /* 24px */
-    border-radius: var(--radius-section); /* 16px */
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 12px rgba(111, 255, 82, 0.1);
-}
-
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-}
-
-.contact-detail {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm); /* 16px */
-    animation: fadeIn 1s ease-out;
-}
-
-.contact-detail:nth-child(1) {
-    animation-delay: 0.1s;
-    animation-fill-mode: backwards;
-}
-
-.contact-detail:nth-child(2) {
-    animation-delay: 0.2s;
-    animation-fill-mode: backwards;
-}
-
-.contact-detail:nth-child(3) {
-    animation-delay: 0.3s;
-    animation-fill-mode: backwards;
-}
-
-.contact-detail img {
-    width: 24px;
-    height: 24px;
-    filter: drop-shadow(0 0 4px rgba(111, 255, 82, 0.66));
-}
-
-.contact-detail p,
-.contact-detail a {
-    color: var(--text-accent); /* #D3D3D3 */
-    font-size: 18px;
-    font-family: var(--font-primary);
-    text-decoration: none;
-}
-
-.contact-detail a:hover {
-    color: var(--primary-accent); /* #39FF14 */
-}
-
-/* Style for revealed text */
-.contact-revealed-text {
-    color: var(--text-accent); /* #D3D3D3 */
-    font-size: 18px;
-    font-family: var(--font-primary);
-    text-decoration: none;
-    animation: revealFade 0.5s ease-out;
-}
-
-.contact-revealed-text:hover {
-    color: var(--primary-accent); /* #39FF14 */
-}
-
-/* Animation for revealed text */
-@keyframes revealFade {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Social media links */
-.contact-socials-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg); /* 8px */
-}
-
-.contact-socials-label {
-    color: var(--text-accent); /* #D3D3D3 */
-    font-size: 18px;
-    font-family: var(--font-primary);
-}
-
-.contact-socials {
-    display: flex;
-    gap: var(--space-md); /* 8px */
-}
-
-.contact-socials a {
-    display: flex;
-    align-items: center;
-}
-
-.contact-socials img {
-    width: 28px;
-    height: 28px;
-    filter: brightness(0.9);
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.contact-socials img:hover {
-    filter: brightness(1) drop-shadow(0 0 4px rgba(111, 255, 82, 0.66));
-    transform: scale(1.1);
-}
+/* IMPROVEMENT #1: Removed unused CSS classes (.contact-left, .contact-details, .contact-detail, .contact-revealed-text, .contact-socials*) */
 
 .contact-right {
     display: flex;
     flex-direction: column;
     gap: var(--space-md); /* 24px */
     flex: 1;
+    /* Glassmorphic box styling for consistency */
+    padding: var(--space-md); /* 24px */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-section);
+    box-shadow: 0 0 40px rgba(111, 255, 82, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .contact-right form {
@@ -191,7 +84,7 @@
 .contact-right textarea {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-section); /* 16px */
+    border-radius: var(--radius-md); /* slightly rounded */
     padding: var(--space-sm); /* 16px */
     background: rgba(255, 255, 255, 0.02);
     color: var(--text-accent); /* #D3D3D3 */
@@ -199,6 +92,29 @@
     font-family: var(--font-primary);
     outline: none;
     transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-error {
+    color: var(--primary-accent);
+    background: rgba(57,255,20,0.04);
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* IMPROVEMENT #4: Success message styling */
+.form-success {
+    color: var(--primary-accent);
+    background: rgba(57,255,20,0.08);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: var(--space-md);
+    text-align: center;
+    animation: fadeIn 0.4s ease-out;
+    border: 1px solid rgba(57,255,20,0.2);
 }
 
 .contact-right input::placeholder,
@@ -213,20 +129,109 @@
     box-shadow: 0 0 8px rgba(111, 255, 82, 0.4);
 }
 
-.contact-right textarea {
-    resize: vertical;
-    min-height: 150px;
+/* IMPROVEMENT #5: Add red border and styling for invalid inputs */
+.contact-right input[aria-invalid="true"],
+.contact-right textarea[aria-invalid="true"] {
+    border: 1px solid #ff4444;
+    box-shadow: 0 0 6px rgba(255, 68, 68, 0.3);
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+.contact-right textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Form container: center and constrain width */
+.contact-form-container {
+    width: 100%;
+    max-width: 1100px; /* allow more horizontal space */
+    margin: 0 auto;
+}
+
+/* Responsive grid for form fields: 1 / 2 / 3 columns */
+.contact-form-container form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* IMPROVEMENT #3: Required indicator styling */
+.required-indicator {
+    color: var(--primary-accent);
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+/* IMPROVEMENT #6: Character counter styling */
+.label-with-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.character-counter {
+    font-size: 13px;
+    color: var(--text-soft);
+    font-weight: 400;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .contact-form-container form {
+        grid-template-columns: repeat(3, 1fr);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    /* message and submit span all columns on medium screens */
+    .form-field--message,
+    .form-field--submit {
+        grid-column: 1 / -1;
+    }
+
+    /* center the submit button and make it wider */
+    .form-field--submit {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-field--submit .button,
+    .form-field--submit button {
+        width: 60%;
+        max-width: 480px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact-form-container form {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* on large screens: name | subject | email ; message and submit span all columns */
+    .form-field--message,
+    .form-field--submit {
+        grid-column: 1 / -1;
+    }
+
+    /* on large screens ensure the submit button is centered and wider */
+    .form-field--submit {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-field--submit .button,
+    .form-field--submit button {
+        width: 50%;
+        max-width: 540px;
     }
 }
 

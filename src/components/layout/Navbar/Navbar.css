@@ -2,17 +2,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--space-sm) 10vw; /* 16px 10vw */
+    /* slightly tighter horizontal padding so logo/button sit closer to edges */
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    /* smoother, bounded horizontal padding */
+    padding-inline: clamp(16px, 6vw, 120px);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(111, 255, 82, 0.1);
-    border-radius: var(--radius-section); /* 16px */
+    /* slight rounding to avoid full rectangle */
+    border-radius: var(--radius-md); /* 16px */
     box-shadow: 0 4px 20px rgba(111, 255, 82, 0.08);
     position: sticky;
     top: 10px;
     z-index: 1000;
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    max-width: 1440px;
+    max-width: var(--maximum-width);
     margin: 0 auto 10px;
 }
 
@@ -87,7 +92,8 @@
     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     color: #fff;
     border: none;
-    border-radius: var(--radius-button);
+    /* use extra-large radius for a pill-style button */
+    border-radius: var(--radius-xxl);
     font-family: var(--font-primary);
     font-size: 16px;
     cursor: pointer;
@@ -148,7 +154,8 @@
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        /* off-canvas by translateX */
+        transform: translateX(100%);
         width: 80vw;
         max-width: 300px;
         height: 100vh;
@@ -160,9 +167,14 @@
         border-left: 1px solid rgba(111, 255, 82, 0.1);
         box-shadow: -4px 0 20px rgba(111, 255, 82, 0.08);
         padding: var(--space-md);
-        z-index: 2;
-        transition: right 0.3s ease;
-        will-change: right; /* Optimize for animation */
+        z-index: var(--z-modal);
+        transition: transform var(--transition-normal) ease;
+        will-change: transform; /* Optimize for animation */
+    }
+
+    /* When open, slide in the off-canvas menu */
+    .nav-menu.open {
+        transform: translateX(0);
     }
 
     .nav-menu li {
@@ -235,17 +247,6 @@
     animation-fill-mode: backwards;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Extra small screens */
 @media (max-width: 480px) {
     .navbar-logo {
@@ -266,5 +267,17 @@
     .nav-mob-close img {
         width: 30px;
         height: 30px;
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate,
+    .nav-menu,
+    .nav-menu.open,
+    .navbar-logo,
+    .nav-connect-button {
+        transition: none !important;
+        animation: none !important;
     }
 }

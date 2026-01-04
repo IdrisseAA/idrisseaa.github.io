@@ -17,32 +17,61 @@
     font-weight: 700;
     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* IMPROVEMENT: Better responsive grid with safer breakpoints */
+/* IMPROVEMENT: Add glassmorphic box styling like Research section */
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--space-md); /* 24px */
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    animation: fadeIn 1s ease-out 0.2s; /* Added animation */
-    animation-fill-mode: backwards;
+    /* Glassmorphic box styling matching Research section */
+    padding: var(--space-md); /* 24px */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-section);
+    box-shadow: 0 0 40px rgba(111, 255, 82, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
+/* IMPROVEMENT: Stagger animation for cards */
+.projects-container > * {
+    animation: fadeIn 0.6s ease-out backwards;
+}
 
+/* IMPROVEMENT: Centered button container with constrained width */
+.projects-show-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: var(--space-lg);
+}
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.projects-show-more .button {
+    min-width: 160px;
+    max-width: 200px;
+}
+
+/* IMPROVEMENT: Disabled button state */
+.projects-show-more .button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* IMPROVEMENT: Empty state styling */
+.projects-empty {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    color: var(--text-soft);
+    font-size: 18px;
+    animation: fadeIn 0.8s ease-out;
 }
 
 /* Responsive */
@@ -57,9 +86,16 @@
 
     .projects-container {
         gap: var(--space-sm); /* 16px - Reduced gap for mobile */
+        grid-template-columns: 1fr; /* Single column on mobile */
     }
 
-    .glow-divider {
-        margin: var(--space-sm) 0; /* 16px */
+    .projects-empty {
+        font-size: 16px;
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    .projects-show-more .button {
+        min-width: 140px;
+        max-width: 180px;
     }
 }

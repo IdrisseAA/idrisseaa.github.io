@@ -21,18 +21,16 @@ const About = () => {
                 <div className="about-right">
                     <div className="about-para">
                         <p>
-                            I’m Idrisse, a Machine Learning Engineer with experience at Thales,
-                            where I honed my skills in building data-driven solutions.
-                            Specializing in machine learning, NLP, and automation, I’m
-                            passionate about leveraging technology to tackle complex
-                            challenges.
+                            I'm Idrisse, a Machine Learning Engineer building my expertise in
+                            AI and data-driven solutions. Currently working at Thales, I focus
+                            on machine learning, NLP, and automation to solve real-world problems.
                         </p>
                         <p>
                             My toolkit includes Python, TensorFlow, Hugging Face, and
-                            Streamlit, and I thrive on creating scalable, impactful
-                            projects—like my real-time sentiment analysis pipeline. When I’m
-                            not coding, I’m exploring the latest advancements in AI to stay at
-                            the forefront of innovation.
+                            Streamlit. I'm passionate about learning and growing in this
+                            field—from building sentiment analysis pipelines to exploring the
+                            latest AI advancements. Always eager to take on new challenges and
+                            expand my skills.
                         </p>
                     </div>
                     <div className="about-skills">
@@ -57,18 +55,18 @@ const About = () => {
             </div>
             <div className="about-achievements">
                 <div className="about-achievement">
-                    <h1>10+</h1>
-                    <p>Years of Experience</p>
+                    <h1>1.5+</h1>
+                    <p>Years Experience</p>
                 </div>
                 <hr/>
                 <div className="about-achievement">
-                    <h1>90+</h1>
-                    <p>Projects Completed</p>
+                    <h1>9+</h1>
+                    <p>ML Projects</p>
                 </div>
                 <hr/>
                 <div className="about-achievement">
-                    <h1>15+</h1>
-                    <p>Happy Clients</p>
+                    <h1>6+</h1>
+                    <p>Research Papers</p>
                 </div>
             </div>
         </section>
