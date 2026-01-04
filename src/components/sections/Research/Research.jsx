@@ -54,7 +54,7 @@ const Research = () => {
                         description={research.description}
                         ctaText="Read More"
                         ctaIcon={arrowIcon}
-                        onCtaClick={() => console.log(`Read more about ${research.name}`)}
+                        onCtaClick={() => window.open(research.link, '_blank', 'noopener,noreferrer')}
                         style={{ animationDelay: `${index * 0.1}s` }}
                         role="listitem"
                     />

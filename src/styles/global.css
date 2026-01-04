@@ -36,3 +36,27 @@ p {
     display: flex;
     flex-direction: column;
 }
+
+/* 5. Accessibility - Keyboard Navigation Focus Styles */
+*:focus-visible {
+    outline: 2px solid var(--primary-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Remove default focus outline for mouse users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* 6. Global Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

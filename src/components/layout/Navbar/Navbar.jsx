@@ -77,7 +77,7 @@ const Navbar = () => {
             clearTimeout(timeout);
             timeout = setTimeout(() => {
                 handleScroll();
-            }, 1000); // Debounce by 100ms
+            }, 100); // Debounce by 100ms
         };
 
         window.addEventListener('scroll', debouncedScroll, {passive: true});

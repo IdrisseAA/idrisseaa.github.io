@@ -1,20 +1,13 @@
-/* eslint-disable no-control-regex */
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 import Button from '../../ui/Button/Button.jsx';
 import Divider from "../../ui/Divider.jsx";
+import { EMAILJS_CONFIG } from '../../utils/constants.js';
+import { sanitizeString, normalizeEmail, isValidEmail } from '../../utils/helpers.js';
 
 
 const Contact = () => {
-    // EMAILJS CONFIGURATION: These are public keys designed to be in client-side code
-    // Domain restrictions are set in EmailJS dashboard for security
-    const EMAILJS_CONFIG = {
-        serviceId: 'service_dh79ymf',
-        templateId: 'template_xob86go',
-        publicKey: 'PVHX4-AG5iqWIXVvp'
-    };
-
     // Initialize EmailJS once on component mount
     React.useEffect(() => {
         emailjs.init(EMAILJS_CONFIG.publicKey);
@@ -29,34 +22,11 @@ const Contact = () => {
     // IMPROVEMENT #6: Add character count state for message field
     const [messageLength, setMessageLength] = useState(0);
 
-    // sanitize and validate inputs before submission
-    const sanitizeString = (raw) => {
-        if (!raw) return '';
-        // normalize unicode, remove control characters, collapse whitespace
-        return String(raw)
-            .normalize('NFKC')
-            .replace(/[\u0000-\u001F\u007F]/g, '')
-            .replace(/\s+/g, ' ')
-            .trim();
-    };
-
-    const normalizeEmail = (raw) => {
-        if (!raw) return '';
-        // simple normalization: lower-case and trim
-        return String(raw).trim().toLowerCase();
-    };
-
+    // Form-specific validation for name field
     const validateName = (name) => {
         // allow letters (including accents), spaces, hyphens and apostrophes; minimum 2 chars
         const re = /^[A-Za-zÀ-ÖØ-öø-ÿ'\- ]{2,60}$/u;
         return re.test(name);
-    };
-
-    // IMPROVEMENT #7: Use regex-only email validation to avoid Vite dependency error
-    const validateEmail = (email) => {
-        // Reasonable email sanity check using regex pattern
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email) && email.length <= 254;
     };
 
     const handleSubmit = (e) => {
@@ -88,7 +58,7 @@ const Contact = () => {
             return;
         }
 
-        if (!validateEmail(email)) {
+        if (!isValidEmail(email) || email.length > 254) {
             setErrors((prev) => ({ ...prev, email: 'Please enter a valid email address.' }));
             if (form.email) form.email.focus();
             return;

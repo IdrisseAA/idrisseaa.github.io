@@ -44,6 +44,7 @@
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
+    --radius-section: 24px; /* Glassmorphic box sections */
     --radius-full: 50px;
     /* Extra large radius for pill / very rounded elements */
     --radius-xxl: 100px;
