@@ -1,6 +1,5 @@
-/* Design system variables */
 :root {
-    /* Colors */
+    /* Colors - Core palette */
     --primary-accent: #39FF14;
     --gradient-start: #8FFF52;
     --gradient-end: #4CFAC8;
@@ -12,19 +11,62 @@
     --bg-tertiary: #1c1c1c;
     --white: #FFFFFF;
 
-    /* Typography - The System Font Stack */
-    /* This ensures zero-load time and high stability */
+    /* Color variations */
+    --primary-accent-light: rgba(57, 255, 20, 0.2);
+    --primary-accent-dark: rgba(57, 255, 20, 0.8);
+    --text-accent-muted: rgba(211, 211, 211, 0.6);
+
+    /* Typography - System fonts, no load time */
     --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: 'Roboto Mono', monospace;
 
-    /* Spacing */
+    /* Font sizes */
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    /* Spacing - 8px base unit */
     --space-xs: 8px;
     --space-sm: 16px;
     --space-md: 24px;
     --space-lg: 32px;
-    --space-xl: 60px; /* Added for section breathing room */
+    --space-xl: 40px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
 
-    /* Border Radius */
-    --radius-button: 50px;
-    --radius-section: 16px;
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 50px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+
+    /* Z-index layers */
+    --z-dropdown: 100;
+    --z-modal: 1000;
+    --z-tooltip: 1100;
+
+    /* Breakpoints */
+    --breakpoint-xl: 1200px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-md: 768px;
+    --breakpoint-sm: 480px;
+
+    /* Layout */
+    --maximum-width: 1440px;
 }

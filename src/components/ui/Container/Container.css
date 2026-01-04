@@ -1,0 +1,36 @@
+/* Main container - centers content and limits max width */
+.container {
+    max-width: var(--maximum-width);
+    margin: 0 auto;
+    padding: 0 10vw;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Large desktop - moderate padding reduction */
+@media (max-width: var(--breakpoint-xl)) {
+    .container {
+        padding: 0 8vw;
+    }
+}
+
+/* Tablet - reduce horizontal padding */
+@media (max-width: var(--breakpoint-lg)) {
+    .container {
+        padding: 0 6vw;
+    }
+}
+
+/* Small tablet - tighter padding */
+@media (max-width: var(--breakpoint-md)) {
+    .container {
+        padding: 0 5vw;
+    }
+}
+
+/* Mobile - minimum padding */
+@media (max-width: var(--breakpoint-sm)) {
+    .container {
+        padding: 0 4vw;
+    }
+}
