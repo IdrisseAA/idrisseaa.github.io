@@ -1,4 +1,4 @@
-import {React} from "react";
+import React from 'react';
 import './About.css';
 import profileImage from '../../../assets/images/profile/profilePic.jpg';
 import Divider from "../../ui/Divider.jsx";
