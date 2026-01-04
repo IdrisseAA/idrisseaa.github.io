@@ -17,7 +17,7 @@
 }
 
 .footer-bottom {
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     text-align: center;
     color: var(--text-soft); /* #B0B0B0 */
     animation: fadeIn 1s ease-out;
@@ -30,7 +30,7 @@
 .footer-made-with {
     margin: 0;
     color: var(--text-soft);
-    font-size: 14px;
+    font-size: var(--font-size-sm);
     font-family: var(--font-primary);
     text-align: center;
 }

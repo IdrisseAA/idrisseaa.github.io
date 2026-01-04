@@ -10,6 +10,7 @@
     --bg-secondary: #05070E;
     --bg-tertiary: #1c1c1c;
     --white: #FFFFFF;
+    --color-error: #ff4444;
 
     /* Color variations */
     --primary-accent-light: rgba(57, 255, 20, 0.2);
@@ -26,6 +27,8 @@
     --font-size-lg: 18px;
     --font-size-xl: 24px;
     --font-size-2xl: 32px;
+    --font-size-heading: 64px;
+    --font-size-heading-mobile: 40px;
 
     /* Font weights */
     --font-weight-regular: 400;
@@ -63,6 +66,9 @@
     --z-dropdown: 100;
     --z-modal: 1000;
     --z-tooltip: 1100;
+
+    /* Layout constraints */
+    --content-max-width: 1200px;
 
     /* Breakpoints */
     --breakpoint-xl: 1200px;

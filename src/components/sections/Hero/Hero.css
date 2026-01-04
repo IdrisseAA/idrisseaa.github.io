@@ -89,7 +89,7 @@
     }
 
     .hero-subtitle {
-        font-size: 18px;
+        font-size: var(--font-size-lg);
         line-height: 30px;
         width: 90%;
         animation: fadeIn 0.8s ease-out 0.4s;
@@ -107,7 +107,7 @@
     /* Override Button component size to medium on mobile */
     .hero-action .button-large {
         padding: var(--space-sm) var(--space-md); /* Match Button size="medium" */
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 }
 
@@ -130,7 +130,7 @@
     }
 
     .hero-subtitle {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         line-height: 26px;
     }
 

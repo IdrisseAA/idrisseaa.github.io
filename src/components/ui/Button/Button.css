@@ -93,17 +93,17 @@
 /* Sizes */
 .button--small {
     padding: var(--space-xs) var(--space-sm); /* 8px 16px */
-    font-size: 14px;
+    font-size: var(--font-size-sm);
 }
 
 .button--medium {
     padding: var(--space-sm) var(--space-md); /* 16px 24px */
-    font-size: 16px;
+    font-size: var(--font-size-base);
 }
 
 .button--large {
     padding: var(--space-md) var(--space-lg); /* 24px 32px */
-    font-size: 18px;
+    font-size: var(--font-size-lg);
 }
 
 /* Icons */
@@ -139,6 +139,6 @@
 
     .button--large {
         padding: var(--space-sm) var(--space-md); /* 16px 24px */
-        font-size: 16px;
+        font-size: var(--font-size-base);
     }
 }

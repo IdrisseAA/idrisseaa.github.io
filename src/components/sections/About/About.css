@@ -19,15 +19,14 @@
 
 /* Title Section */
 .about-title h1 {
-    font-size: 64px;
+    font-size: var(--font-size-heading);
     font-weight: 700;
-    font-family: var(--font-primary); /* 'Poppins', sans-serif */
+    font-family: var(--font-primary);
     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-    margin-bottom: var(--space-sm); /* 16px */
     animation: fadeIn 1s ease-out;
 }
 
@@ -38,7 +37,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 1200px; /* Constrain width for better readability */
+    max-width: var(--content-max-width);
 }
 
 /* Left: Image */
@@ -185,7 +184,7 @@
 }
 
 .about-achievement p {
-    font-size: 16px; /* Reduced from 18px */
+    font-size: var(--font-size-base);
     font-weight: 500; /* Slightly bolder */
     color: var(--text-accent); /* #D3D3D3 */
     font-family: var(--font-mono); /* 'Roboto Mono', monospace */
@@ -223,7 +222,7 @@
     }
 
     .about-title h1 {
-        font-size: 40px;
+        font-size: var(--font-size-heading-mobile);
     }
 
     .about-right {
@@ -236,7 +235,7 @@
     }
 
     .about-skill p {
-        font-size: 18px;
+        font-size: var(--font-size-lg);
         min-width: 120px;
     }
 
@@ -245,6 +244,6 @@
     }
 
     .about-achievement p {
-        font-size: 14px; /* Reduced from 16px */
+        font-size: var(--font-size-sm);
     }
 }

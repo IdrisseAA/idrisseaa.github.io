@@ -3,8 +3,8 @@ import emailjs from '@emailjs/browser';
 import './Contact.css';
 import Button from '../../ui/Button/Button.jsx';
 import Divider from "../../ui/Divider.jsx";
-import { EMAILJS_CONFIG } from '../../utils/constants.js';
-import { sanitizeString, normalizeEmail, isValidEmail } from '../../utils/helpers.js';
+import { EMAILJS_CONFIG } from '../../../utils/constants.js';
+import { sanitizeString, normalizeEmail, isValidEmail } from '../../../utils/helpers.js';
 
 
 const Contact = () => {

@@ -39,7 +39,7 @@
     list-style: none;
     font-family: var(--font-primary);
     font-weight: 500;
-    font-size: 18px;
+    font-size: var(--font-size-lg);
 }
 
 .nav-menu li {
@@ -95,7 +95,7 @@
     /* use extra-large radius for a pill-style button */
     border-radius: var(--radius-xxl);
     font-family: var(--font-primary);
-    font-size: 16px;
+    font-size: var(--font-size-base);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -260,7 +260,7 @@
     }
 
     .nav-menu li {
-        font-size: 18px;
+        font-size: var(--font-size-lg);
     }
 
     .nav-mob-open img,

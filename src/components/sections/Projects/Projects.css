@@ -13,12 +13,15 @@
 }
 
 .projects-title h1 {
-    font-size: 64px;
+    font-size: var(--font-size-heading);
     font-weight: 700;
+    font-family: var(--font-primary);
     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
 }
 
 /* IMPROVEMENT: Better responsive grid with safer breakpoints */
@@ -28,7 +31,7 @@
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: var(--space-md); /* 24px */
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--content-max-width);
     margin: 0 auto;
     /* Glassmorphic box styling matching Research section */
     padding: var(--space-md); /* 24px */
@@ -70,7 +73,7 @@
     text-align: center;
     padding: var(--space-xl) var(--space-md);
     color: var(--text-soft);
-    font-size: 18px;
+    font-size: var(--font-size-lg);
     animation: fadeIn 0.8s ease-out;
 }
 
@@ -81,7 +84,7 @@
     }
 
     .projects-title h1 {
-        font-size: 40px;
+        font-size: var(--font-size-heading-mobile);
     }
 
     .projects-container {
@@ -90,7 +93,7 @@
     }
 
     .projects-empty {
-        font-size: 16px;
+        font-size: var(--font-size-base);
         padding: var(--space-lg) var(--space-sm);
     }
 

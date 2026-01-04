@@ -46,7 +46,7 @@
 
 /* Responsive width variants using clamp */
 .divider-width--responsive {
-    width: clamp(60%, 80%, 1200px);
+    width: clamp(60%, 80%, var(--content-max-width));
 }
 
 .divider-width--narrow {
