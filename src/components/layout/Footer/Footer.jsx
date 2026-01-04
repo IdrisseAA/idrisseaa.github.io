@@ -6,11 +6,11 @@ import twitterIcon from '../../../assets/images/icons/twitter_icon.png';
 
 const Footer = () => {
     return (
-        <footer className="footer" id="footer">
+        <footer className="footer" id="footer" role="contentinfo">
             <div className="footer-bottom">
                 <div className="footer-bottom-content">
-                    <p className="footer-bottom-text">© {new Date().getFullYear()} IdrisseAA</p>
-                    <p className="footer-made-with">Made with curiosity using React.</p>
+                    <p className="footer-bottom-text"><span>© {new Date().getFullYear()} IdrisseAA</span></p>
+                    <p className="footer-made-with"><small>Made with curiosity using React.</small></p>
                     <div className="footer-socials-wrapper">
                         <div className="footer-socials">
                             <a
@@ -19,7 +19,7 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 aria-label="Visit my LinkedIn profile"
                             >
-                                <img src={linkedinIcon} alt="LinkedIn profile link"/>
+                                <img src={linkedinIcon} alt="" aria-hidden="true"/>
                             </a>
                             <a
                                 href="https://github.com/idrisseaa"
@@ -27,7 +27,7 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 aria-label="Visit my GitHub profile"
                             >
-                                <img src={githubIcon} alt="GitHub profile link"/>
+                                <img src={githubIcon} alt="" aria-hidden="true"/>
                             </a>
                             <a
                                 href="https://twitter.com/idrisseaa"
@@ -35,7 +35,7 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 aria-label="Visit my Twitter profile"
                             >
-                                <img src={twitterIcon} alt="Twitter profile link"/>
+                                <img src={twitterIcon} alt="" aria-hidden="true"/>
                             </a>
                         </div>
                     </div>
