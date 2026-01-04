@@ -27,7 +27,7 @@ const Button = ({
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
-    variant: PropTypes.oneOf(['primary', 'secondary', 'glass']), // Added 'glass'
+    variant: PropTypes.oneOf(['primary', 'secondary', 'glass']),
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     icon: PropTypes.node,
     iconRight: PropTypes.node,
