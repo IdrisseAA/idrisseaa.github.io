@@ -50,6 +50,33 @@
     }
 }
 
+/* Show More Button Container */
+.research-show-more {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-lg);
+    width: 100%;
+}
+
+.research-show-more button {
+    min-width: 160px;
+    max-width: 200px;
+}
+
+.research-show-more button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Empty State */
+.research-empty {
+    text-align: center;
+    padding: var(--space-xl);
+    color: var(--text-soft);
+    font-size: 18px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .research-title h1 {
