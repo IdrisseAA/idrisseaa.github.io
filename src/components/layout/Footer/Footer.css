@@ -42,40 +42,31 @@
     gap: var(--space-md);
     width: 100%;
     flex-direction: column;
-    position: relative; /* allow absolute children positioned relative to this container */
 }
 
-/* Desktop: three-column layout (icons | copyright center | sentence right) */
+/* Desktop: use grid for precise left/center/right layout */
 @media (min-width: 768px) {
     .footer-bottom-content {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
+        gap: var(--space-md);
+        width: 100%;
     }
 
     .footer-socials {
-        order: 1;
-        margin-right: auto;
-        position: absolute;
-        left: clamp(16px, 6vw, 120px);
-        top: 50%;
-        transform: translateY(-50%);
+        justify-self: start;
     }
 
     .footer-bottom-text {
-        order: 2;
-        flex: 1 1 auto;
-        text-align: center;
+        justify-self: center;
         margin: 0;
     }
 
     .footer-made-with {
-        order: 3;
-        margin-left: auto;
+        justify-self: end;
+        margin: 0;
         text-align: right;
-        position: absolute;
-        right: clamp(16px, 6vw, 120px);
-        top: 50%;
-        transform: translateY(-50%);
     }
 }
 

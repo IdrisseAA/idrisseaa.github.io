@@ -9,8 +9,6 @@ const Footer = () => {
         <footer className="footer" id="footer" role="contentinfo">
             <div className="footer-bottom">
                 <div className="footer-bottom-content">
-                    <p className="footer-bottom-text"><span>© {new Date().getFullYear()} IdrisseAA</span></p>
-                    <p className="footer-made-with"><small>Made with curiosity using React.</small></p>
                     <div className="footer-socials-wrapper">
                         <div className="footer-socials">
                             <a
@@ -39,6 +37,8 @@ const Footer = () => {
                             </a>
                         </div>
                     </div>
+                    <p className="footer-bottom-text"><span>© {new Date().getFullYear()} IdrisseAA</span></p>
+                    <p className="footer-made-with"><small>Made with curiosity using React.</small></p>
                 </div>
             </div>
         </footer>
