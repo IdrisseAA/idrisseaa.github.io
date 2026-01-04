@@ -215,7 +215,7 @@
 
 .contact-right textarea {
     resize: vertical;
-    min-height: 150px;
+    min-height: 120px;
 }
 
 /* Form container: center and constrain width */
@@ -245,13 +245,25 @@
 
 @media (min-width: 768px) {
     .contact-form-container form {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    /* message and submit span both columns on medium screens */
+    /* message and submit span all columns on medium screens */
     .form-field--message,
     .form-field--submit {
         grid-column: 1 / -1;
+    }
+
+    /* center the submit button and make it wider */
+    .form-field--submit {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-field--submit .button,
+    .form-field--submit button {
+        width: 60%;
+        max-width: 480px;
     }
 }
 
@@ -264,6 +276,18 @@
     .form-field--message,
     .form-field--submit {
         grid-column: 1 / -1;
+    }
+
+    /* on large screens ensure the submit button is centered and wider */
+    .form-field--submit {
+        display: flex;
+        justify-content: center;
+    }
+
+    .form-field--submit .button,
+    .form-field--submit button {
+        width: 50%;
+        max-width: 540px;
     }
 }
 

@@ -25,7 +25,7 @@ const Contact = () => {
             <div className="contact-header">
                 <h1 className="contact-header-title">Contact</h1>
                 <p className="contact-subtitle">
-                    Let’s build something great together. Reach out for collaboration, projects, or just to say hi.
+                    Let’s build something great together. Reach out for collaboration, feedback, or just to say hi.
                 </p>
             </div>
             <div className="contact-section">
@@ -41,7 +41,7 @@ const Contact = () => {
                             <input type="text" id="subject" name="subject" placeholder="Topic of your message" />
                         </div>
 
-                        <div className="form-field">
+                        <div className="form-field form-field--email">
                             <label htmlFor="email">Your Email</label>
                             <input type="email" id="email" name="email" placeholder="Enter your email" required/>
                         </div>
