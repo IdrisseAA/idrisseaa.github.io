@@ -116,9 +116,9 @@
 }
 
 .skill-bar {
-    height: 8px;
+    height: var(--space-xs);
     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-    border-radius: 10px;
+    border-radius: var(--radius-section);
     border: none;
     box-shadow: 0 0 10px rgba(111, 255, 82, 0.4);
     transition: width 0.5s ease;

@@ -9,8 +9,8 @@
     padding-inline: clamp(16px, 6vw, 120px);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(111, 255, 82, 0.1);
-    /* slight rounding to avoid full rectangle */
-    border-radius: var(--radius-md); /* 16px */
+    /* Match section boxes for consistency */
+    border-radius: var(--radius-section);
     box-shadow: 0 4px 20px rgba(111, 255, 82, 0.08);
     position: sticky;
     top: 10px;
@@ -92,8 +92,8 @@
     background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
     color: #fff;
     border: none;
-    /* use extra-large radius for a pill-style button */
-    border-radius: var(--radius-xxl);
+    /* Match section boxes for consistency */
+    border-radius: var(--radius-section);
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     cursor: pointer;
@@ -189,7 +189,7 @@
     .nav-menu li a {
         display: block;
         padding: var(--space-xs);
-        border-radius: 8px;
+        border-radius: var(--radius-sm);
         transition: background 0.3s ease;
     }
 

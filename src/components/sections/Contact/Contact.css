@@ -86,7 +86,7 @@
 .contact-right textarea {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-md); /* slightly rounded */
+    border-radius: var(--radius-section);
     padding: var(--space-sm); /* 16px */
     background: rgba(255, 255, 255, 0.02);
     color: var(--text-accent); /* #D3D3D3 */
@@ -100,9 +100,9 @@
     color: var(--primary-accent);
     background: rgba(57,255,20,0.04);
     padding: 6px 10px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     font-size: 13px;
-    margin-top: 8px;
+    margin-top: var(--space-xs);
 }
 
 /* IMPROVEMENT #4: Success message styling */
@@ -110,7 +110,7 @@
     color: var(--primary-accent);
     background: rgba(57,255,20,0.08);
     padding: 16px 20px;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-section);
     font-size: var(--font-size-base);
     font-weight: 600;
     margin-top: var(--space-md);
@@ -159,7 +159,7 @@
 
 .form-field label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-xs);
 }
 
 /* IMPROVEMENT #3: Required indicator styling */
@@ -174,7 +174,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-xs);
 }
 
 .character-counter {

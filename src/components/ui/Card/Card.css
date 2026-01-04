@@ -4,7 +4,7 @@
     justify-content: space-between;
     gap: var(--space-sm); /* 16px */
     padding: var(--space-md); /* 24px */
-    border-radius: 20px;
+    border-radius: var(--radius-section);
     transition: all 0.35s ease;
     cursor: pointer;
     overflow: hidden;
@@ -42,7 +42,7 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     box-shadow: 0 0 20px rgba(111, 255, 82, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -87,7 +87,7 @@
     background-color: rgba(111, 255, 82, 0.15);
     border: 1px solid var(--primary-accent); /* #39FF14 */
     padding: 5px 12px;
-    border-radius: 30px;
+    border-radius: var(--radius-full);
     font-size: 13px;
     color: var(--primary-accent);
     font-weight: 500;

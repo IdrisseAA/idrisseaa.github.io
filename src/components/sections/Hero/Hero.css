@@ -65,6 +65,11 @@
     animation-fill-mode: backwards;
 }
 
+/* Hero-specific button styling - pill-shaped */
+.hero-action .button {
+    border-radius: var(--radius-xxl);
+}
+
 /* Responsive: Tablets and smaller (≤768px) */
 @media (max-width: 768px) {
     .hero {
@@ -135,7 +140,7 @@
     }
 
     .hero-action {
-        gap: 8px; /* 8px */
+        gap: var(--space-xs);
         margin-bottom: var(--space-xs); /* 8px */
     }
 }

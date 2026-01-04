@@ -12,8 +12,8 @@
     background: rgba(255, 255, 255, 0.02);
     border-top: 1px solid rgba(111, 255, 82, 0.1);
     box-shadow: 0 0 20px rgba(111, 255, 82, 0.05);
-    /* subtle rounding to match navbar */
-    border-radius: var(--radius-md);
+    /* Match section boxes for consistency */
+    border-radius: var(--radius-section);
 }
 
 .footer-bottom {
