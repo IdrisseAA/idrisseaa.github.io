@@ -96,6 +96,39 @@ const projects = [
         category: "NLP",
         date: "February 2025",
     },
+    {
+        projectNumber: 7,
+        name: "Real-Time Object Detection System",
+        image: project3,
+        description:
+            "A computer vision application using YOLO and OpenCV for real-time object detection in video streams, optimized for edge deployment with TensorRT.",
+        technologies: ["Python", "YOLO", "OpenCV", "TensorRT", "Computer Vision"],
+        link: "https://github.com/idrisseaa/object-detection",
+        category: "Computer Vision",
+        date: "June 2024",
+    },
+    {
+        projectNumber: 8,
+        name: "Speech Recognition Assistant",
+        image: project4,
+        description:
+            "An AI-powered voice assistant that transcribes and processes voice commands using Whisper AI, integrated with task automation and calendar management.",
+        technologies: ["Python", "Whisper AI", "Speech Recognition", "NLP", "FastAPI"],
+        link: "https://github.com/idrisseaa/speech-assistant",
+        category: "NLP",
+        date: "April 2024",
+    },
+    {
+        projectNumber: 9,
+        name: "Anomaly Detection Dashboard",
+        image: project5,
+        description:
+            "A monitoring dashboard for detecting anomalies in time-series data using autoencoders, with real-time alerts and interactive visualizations built with Plotly.",
+        technologies: ["Python", "TensorFlow", "Plotly", "Time-Series", "Dash"],
+        link: "https://github.com/idrisseaa/anomaly-detection",
+        category: "Machine Learning",
+        date: "May 2024",
+    },
 ];
 
 export default projects;
