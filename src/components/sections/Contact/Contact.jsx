@@ -1,36 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Contact.css';
-import mailIcon from '../../../assets/images/icons/mail_icon.png';
-import locationIcon from '../../../assets/images/icons/location_icon.png';
-import eyeIcon from '../../../assets/images/icons/eye_icon.png';
 import Button from '../../ui/Button/Button.jsx';
 import Divider from "../../ui/Divider.jsx";
 
 
 const Contact = () => {
-    const [email, setEmail] = useState('');
-    // eslint-disable-next-line no-unused-vars
-    const [emailVisible, setEmailVisible] = useState(false);
-
-    const revealEmail = () => {
-        const user = 'contact';
-        const domain = 'idrisseaa';
-        const tld = 'com';
-        return `${user}@${domain}.${tld}`;
-    };
-
-    const handleEmailClick = () => {
-        if (!email) {
-            setEmail(revealEmail());
-            setEmailVisible(true);
-        }
-    };
+    // simplified contact: only the form remains here
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         console.log({
             name: formData.get('name'),
+            subject: formData.get('subject'),
             email: formData.get('email'),
             message: formData.get('message'),
         });
@@ -47,43 +29,13 @@ const Contact = () => {
                 </p>
             </div>
             <div className="contact-section">
-                <div className="contact-left">
-                    <div className="contact-details">
-                        <div className="contact-detail">
-                            <img src={mailIcon} alt="Email icon for contact"/>
-                            {email ? (
-                                <a
-                                    href={`mailto:${email}`}
-                                    className="contact-revealed-text"
-                                    aria-label="Email: contact at idrisseaa dot com"
-                                    data-nosniff
-                                >
-                                    {email}
-                                </a>
-                            ) : (
-                                <Button
-                                    variant="glass"
-                                    size="medium"
-                                    onClick={handleEmailClick}
-                                    className="contact-reveal-button"
-                                    iconRight={<img src={eyeIcon} alt="Reveal icon"/>}
-                                    aria-label="Click to reveal email address"
-                                >
-                                    Reveal Email
-                                </Button>
-                            )}
-                        </div>
-                        <div className="contact-detail">
-                            <img src={locationIcon} alt="Location icon for contact"/>
-                            <p>France, EU — Open to remote work</p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div className="contact-right">
+                <div className="contact-right contact-form-container">
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" required/>
+
+                        <label htmlFor="subject">Topic</label>
+                        <input type="text" id="subject" name="subject" placeholder="Topic of your message" />
 
                         <label htmlFor="email">Your Email</label>
                         <input type="email" id="email" name="email" placeholder="Enter your email" required/>

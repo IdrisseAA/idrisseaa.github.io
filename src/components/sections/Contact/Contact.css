@@ -191,7 +191,7 @@
 .contact-right textarea {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-section); /* 16px */
+    border-radius: var(--radius-md); /* slightly rounded */
     padding: var(--space-sm); /* 16px */
     background: rgba(255, 255, 255, 0.02);
     color: var(--text-accent); /* #D3D3D3 */
@@ -216,6 +216,13 @@
 .contact-right textarea {
     resize: vertical;
     min-height: 150px;
+}
+
+/* Form container: center and constrain width */
+.contact-form-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 /* Fade-in animation */
