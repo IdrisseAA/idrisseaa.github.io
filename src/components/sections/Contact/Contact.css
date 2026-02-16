@@ -59,11 +59,11 @@
     flex: 1;
     /* Glassmorphic box styling for consistency */
     padding: var(--space-md); /* 24px */
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--surface-2);
     backdrop-filter: blur(6px);
     border-radius: var(--radius-section);
-    box-shadow: 0 0 40px rgba(111, 255, 82, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 40px var(--glow-accent-soft);
+    border: 1px solid var(--border-subtle);
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
@@ -85,10 +85,10 @@
 .contact-right input,
 .contact-right textarea {
     width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-strong);
     border-radius: var(--radius-section);
     padding: var(--space-sm); /* 16px */
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--surface-1);
     color: var(--text-accent); /* #D3D3D3 */
     font-size: var(--font-size-base);
     font-family: var(--font-primary);
@@ -98,7 +98,7 @@
 
 .form-error {
     color: var(--primary-accent);
-    background: rgba(57,255,20,0.04);
+    background: var(--accent-surface-soft);
     padding: 6px 10px;
     border-radius: var(--radius-sm);
     font-size: 13px;
@@ -108,7 +108,7 @@
 /* IMPROVEMENT #4: Success message styling */
 .form-success {
     color: var(--primary-accent);
-    background: rgba(57,255,20,0.08);
+    background: var(--accent-surface);
     padding: 16px 20px;
     border-radius: var(--radius-section);
     font-size: var(--font-size-base);
@@ -116,7 +116,7 @@
     margin-top: var(--space-md);
     text-align: center;
     animation: fadeIn 0.4s ease-out;
-    border: 1px solid rgba(57,255,20,0.2);
+    border: 1px solid var(--accent-border);
 }
 
 .contact-right input::placeholder,
@@ -128,14 +128,14 @@
 .contact-right input:focus,
 .contact-right textarea:focus {
     border: 1px solid var(--primary-accent); /* #39FF14 */
-    box-shadow: 0 0 8px rgba(111, 255, 82, 0.4);
+    box-shadow: 0 0 8px var(--glow-accent-strong);
 }
 
 /* IMPROVEMENT #5: Add red border and styling for invalid inputs */
 .contact-right input[aria-invalid="true"],
 .contact-right textarea[aria-invalid="true"] {
     border: 1px solid var(--color-error);
-    box-shadow: 0 0 6px rgba(255, 68, 68, 0.3);
+    box-shadow: 0 0 6px var(--error-glow);
 }
 
 .contact-right textarea {

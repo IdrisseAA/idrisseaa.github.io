@@ -12,6 +12,40 @@
     --white: #FFFFFF;
     --color-error: #ff4444;
 
+    /* Semantic theme tokens (used across UI) */
+    --text-primary: var(--white);
+    --text-muted: var(--text-soft);
+    --text-inverse: var(--bg-primary);
+
+    --surface-0: var(--bg-primary);
+    --surface-1: rgba(255, 255, 255, 0.02);
+    --surface-2: rgba(255, 255, 255, 0.03);
+    --surface-3: rgba(255, 255, 255, 0.05);
+    --surface-4: rgba(255, 255, 255, 0.1);
+
+    --border-subtle: rgba(255, 255, 255, 0.04);
+    --border-strong: rgba(255, 255, 255, 0.1);
+    --border-accent: rgba(111, 255, 82, 0.1);
+    --border-accent-strong: rgba(111, 255, 82, 0.2);
+    --border-accent-bold: rgba(111, 255, 82, 0.3);
+    --border-accent-bright: rgba(111, 255, 82, 0.6);
+
+    --glow-accent: rgba(111, 255, 82, 0.2);
+    --glow-accent-medium: rgba(111, 255, 82, 0.3);
+    --glow-accent-strong: rgba(111, 255, 82, 0.4);
+    --glow-accent-bright: rgba(111, 255, 82, 0.5);
+    --glow-accent-intense: rgba(111, 255, 82, 0.6);
+    --glow-accent-soft: rgba(111, 255, 82, 0.05);
+
+    --accent-surface-soft: rgba(57, 255, 20, 0.04);
+    --accent-surface: rgba(57, 255, 20, 0.08);
+    --accent-surface-strong: rgba(57, 255, 20, 0.1);
+    --accent-border: rgba(57, 255, 20, 0.2);
+
+    --error-glow: rgba(255, 68, 68, 0.3);
+
+    --text-outline: rgba(255, 255, 255, 0.2);
+
     /* Color variations */
     --primary-accent-light: rgba(57, 255, 20, 0.2);
     --primary-accent-dark: rgba(57, 255, 20, 0.8);
@@ -78,4 +112,59 @@
 
     /* Layout */
     --maximum-width: 1440px;
+}
+
+/* ...existing code... */
+
+/* Light theme overrides */
+:root[data-theme="light"] {
+    /* Core palette adjustments */
+    --bg-primary: #F2F6FD;
+    --bg-secondary: #E4ECF7;
+    --bg-tertiary: #FFFFFF;
+    --text-accent: #0A0F1C;
+    --text-soft: #556275;
+    --text-soft-alt: #0F3D1E;
+    --white: #FFFFFF;      /* Fix: keep white as true white */
+    --dark: #0A0F1C;       /* New: add a dark color variable if needed */
+
+    --primary-accent: #2BEA10;
+
+    /* Gradient overrides for better contrast in light theme */
+    --gradient-start: #2BEA10; /* Darker green for contrast */
+    --gradient-end: #00A8A8;   /* Deeper cyan for contrast */
+
+    /* Semantic theme tokens */
+    --text-primary: var(--text-accent);
+    --text-muted: var(--text-soft);
+    --text-inverse: #FFFFFF;
+
+    --surface-0: var(--bg-primary);
+    --surface-1: rgba(10, 15, 28, 0.02);
+    --surface-2: rgba(10, 15, 28, 0.04);
+    --surface-3: rgba(10, 15, 28, 0.06);
+    --surface-4: rgba(10, 15, 28, 0.1);
+
+    --border-subtle: rgba(10, 15, 28, 0.08);
+    --border-strong: rgba(10, 15, 28, 0.16);
+    --border-accent: rgba(57, 255, 20, 0.2);
+    --border-accent-strong: rgba(57, 255, 20, 0.3);
+    --border-accent-bold: rgba(57, 255, 20, 0.4);
+    --border-accent-bright: rgba(57, 255, 20, 0.6);
+
+    --glow-accent: rgba(57, 255, 20, 0.15);
+    --glow-accent-medium: rgba(57, 255, 20, 0.25);
+    --glow-accent-strong: rgba(57, 255, 20, 0.3);
+    --glow-accent-bright: rgba(57, 255, 20, 0.4);
+    --glow-accent-intense: rgba(57, 255, 20, 0.5);
+    --glow-accent-soft: rgba(57, 255, 20, 0.05);
+
+    --accent-surface-soft: rgba(57, 255, 20, 0.05);
+    --accent-surface: rgba(57, 255, 20, 0.1);
+    --accent-surface-strong: rgba(57, 255, 20, 0.15);
+    --accent-border: rgba(57, 255, 20, 0.25);
+
+    --error-glow: rgba(255, 68, 68, 0.25);
+
+    --text-outline: rgba(10, 15, 28, 0.2);
 }

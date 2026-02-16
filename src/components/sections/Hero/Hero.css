@@ -19,7 +19,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-top: 0; /* REMOVED: prevent extra top gap */
-    box-shadow: 0 0 20px rgba(111, 255, 82, 0.4);
+    box-shadow: 0 0 20px var(--glow-accent-strong);
     transition: transform 0.3s ease;
 }
 
@@ -27,13 +27,15 @@
     transform: scale(1.05);
 }
 
+
+
 .hero-title {
     font-size: 56px;
     font-weight: 700;
     font-family: var(--font-primary); /* 'Poppins', sans-serif */
     max-width: 900px;
     line-height: 1.2;
-    color: var(--white); /* #FFFFFF */
+    color: var(--text-accent);
     animation: fadeIn 1s ease-out 0.2s;
     animation-fill-mode: backwards;
 }
@@ -82,7 +84,7 @@
         width: 120px;
         height: 120px;
         margin-top: 0; /* Remove margin to reduce top gap */
-        box-shadow: 0 0 16px rgba(111, 255, 82, 0.3), 0 0 8px rgba(111, 255, 82, 0.2) inset;
+        box-shadow: 0 0 16px var(--glow-accent-medium), 0 0 8px var(--glow-accent) inset;
         animation: fadeIn 0.8s ease-out;
     }
 

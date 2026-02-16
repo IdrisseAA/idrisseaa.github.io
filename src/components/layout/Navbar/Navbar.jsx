@@ -7,10 +7,12 @@ import menuClose from '../../../assets/images/icons/menu_close.png';
 import Button from "../../ui/Button/Button.jsx";
 
 const Navbar = () => {
+    const THEME_KEY = 'theme';
     const menuRef = useRef();
     const menuOpenRef = useRef();
     const [activeSection, setActiveSection] = useState('home');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || 'dark');
     const sectionsRef = useRef({}); // Cache DOM elements
 
     // Cache section elements on mount
@@ -127,6 +129,29 @@ const Navbar = () => {
         }
     }, [isMenuOpen, closeMenu]);
 
+    const applyTheme = useCallback((nextTheme) => {
+        const root = document.documentElement;
+        if (nextTheme === 'light' || nextTheme === 'dark') {
+            root.setAttribute('data-theme', nextTheme);
+            return;
+        }
+        root.setAttribute('data-theme', 'dark');
+    }, []);
+
+    useEffect(() => {
+        applyTheme(theme);
+        localStorage.setItem(THEME_KEY, theme);
+    }, [theme, applyTheme]);
+
+    const getNextTheme = useCallback((currentTheme) => {
+        if (currentTheme === 'light') return 'dark';
+        return 'light';
+    }, []);
+
+    const handleThemeToggle = useCallback(() => {
+        setTheme((currentTheme) => getNextTheme(currentTheme));
+    }, [getNextTheme]);
+
     return (
         <nav className="navbar">
             <img
@@ -210,11 +235,37 @@ const Navbar = () => {
                         Contact
                     </AnchorLink>
                 </li>
+                <li className="nav-theme-item">
+                    <button
+                        type="button"
+                        className="theme-toggle theme-toggle--menu"
+                        onClick={handleThemeToggle}
+                        aria-label={`Switch theme (current: ${theme})`}
+                    >
+                        <span className="theme-toggle-icon" aria-hidden="true">
+                            {theme === 'dark' ? '☾' : '☼'}
+                        </span>
+                        <span className="theme-toggle-label">{theme}</span>
+                    </button>
+                </li>
             </ul>
-            <div className="nav-connect">
-                <AnchorLink className="anchor-link" offset={50} href="#contact">
-                    <Button variant="primary" className="nav-connect-button">Connect With Me</Button>
-                </AnchorLink>
+            <div className="nav-actions">
+                <button
+                    type="button"
+                    className="theme-toggle"
+                    onClick={handleThemeToggle}
+                    aria-label={`Switch theme (current: ${theme})`}
+                >
+                    <span className="theme-toggle-icon" aria-hidden="true">
+                        {theme === 'dark' ? '☾' : '☼'}
+                    </span>
+                    <span className="theme-toggle-label">{theme}</span>
+                </button>
+                <div className="nav-connect">
+                    <AnchorLink className="anchor-link" offset={50} href="#contact">
+                        <Button variant="primary" className="nav-connect-button">Connect With Me</Button>
+                    </AnchorLink>
+                </div>
             </div>
         </nav>
     );

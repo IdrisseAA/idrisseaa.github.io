@@ -12,29 +12,34 @@
     color: var(--text-accent); /* #D3D3D3 */
 }
 
+/* Light theme - card tech stack keywords */
+:root[data-theme="light"] .card-tech-stack span {
+    color: var(--text-soft-alt);
+}
+
 .card--research {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--surface-1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(111, 255, 82, 0.15);
-    box-shadow: 0 10px 30px rgba(111, 255, 82, 0.06);
+    border: 1px solid var(--border-accent-strong);
+    box-shadow: 0 10px 30px var(--glow-accent-soft);
 }
 
 .card--research:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 0 30px rgba(111, 255, 82, 0.25), 0 0 10px rgba(111, 255, 82, 0.1) inset;
+    box-shadow: 0 0 30px var(--glow-accent-medium), 0 0 10px var(--border-accent) inset;
     border-color: var(--primary-accent); /* #39FF14 */
 }
 
 .card--project {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-3);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(111, 255, 82, 0.2);
-    box-shadow: 0 4px 20px rgba(111, 255, 82, 0.05);
+    border: 1px solid var(--border-accent-strong);
+    box-shadow: 0 4px 20px var(--glow-accent-soft);
 }
 
 .card--project:hover {
     transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 0 30px rgba(111, 255, 82, 0.4);
+    box-shadow: 0 0 30px var(--glow-accent-strong);
     border-color: var(--primary-accent);
 }
 
@@ -43,13 +48,13 @@
     height: 200px;
     object-fit: cover;
     border-radius: var(--radius-md);
-    box-shadow: 0 0 20px rgba(111, 255, 82, 0.15);
+    box-shadow: 0 0 20px var(--glow-accent);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-image:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 25px rgba(111, 255, 82, 0.2);
+    box-shadow: 0 0 25px var(--glow-accent);
 }
 
 .card-meta {
@@ -84,7 +89,7 @@
 }
 
 .card-tech-stack span {
-    background-color: rgba(111, 255, 82, 0.15);
+    background-color: var(--accent-surface-strong);
     border: 1px solid var(--primary-accent); /* #39FF14 */
     padding: 5px 12px;
     border-radius: var(--radius-full);
