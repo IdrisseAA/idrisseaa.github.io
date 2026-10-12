@@ -9,9 +9,9 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 const Hero = () => {
     return (
         <section className="hero" id="home">
-            <img src={profileImage} alt="Abdallah Idrisse, ML Engineer" className="hero-image"/>
+            <img src={profileImage} alt="Ahamadi-Abdallah-Idrisse, ML Engineer" className="hero-image"/>
             <h1 className="hero-title">
-                <span>Abdallah Idrisse,</span> ML Engineer
+                <span>A. Abdallah IDRISSE,</span> ML Engineer
             </h1>
             <p className="hero-subtitle">
                 I'm Idrisse, an ML Engineer building my expertise at Thales, passionate about using machine learning

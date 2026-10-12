@@ -2,10 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    min-height: 60vh;
-    padding: var(--space-lg) 10vw 0 10vw; /* 32px top, 0 bottom, 10vw sides */
-    margin-top: 180px; /* Space for sticky navbar */
+    margin-top: 100px;
     gap: var(--space-md);
 
     background: var(--bg-primary);
